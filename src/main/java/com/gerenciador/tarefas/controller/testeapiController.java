@@ -17,5 +17,4 @@ public class testeapiController {
         return "Olá " + nome + ", seja bem vindo";
     }
 
-
 }
