@@ -29,7 +29,7 @@ public class UsuarioAutenticadoService implements UserDetailsService {
 
         List<SimpleGrantedAuthority> roles = usuario.getRoles()
                 .stream()
-                .map(role -> new SimpleGrantedAuthority(role.getNome()))
+                .map(role -> new SimpleGrantedAuthority(role.getNome().toString()))
                 .toList();
 
         return new User(usuario.getUsername(), usuario.getPassword(), roles);

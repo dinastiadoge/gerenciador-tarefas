@@ -20,13 +20,16 @@ public class UsuarioController {
 
 
     @PostMapping
-    public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario) {
-        return new ResponseEntity<>(usuarioService.salvarUsuario(usuario), HttpStatus.CREATED);
+    public ResponseEntity<String> salvarUsuario(@RequestBody Usuario usuario) {
+        Usuario usuariosalvo = usuarioService.salvarUsuario(usuario);
+
+        return new ResponseEntity<>("Novo usuário criado " + usuariosalvo.getUsername(), HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuario) {
-        return new ResponseEntity<>(usuarioService.atualizarUsuario(usuario), HttpStatus.OK);
+    public ResponseEntity<String> atualizarUsuario(@RequestBody Usuario usuario) {
+        Usuario usuariosalvo = usuarioService.salvarUsuario(usuario);
+        return new ResponseEntity<>("Novo usuário criado " + usuariosalvo.getUsername(), HttpStatus.CREATED);
     }
 
     @GetMapping
