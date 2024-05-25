@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -24,8 +25,13 @@ public class UsuarioService {
     private PasswordEncoder passwordEncoder;
 
 
+    public Optional<Usuario> obterUsuarioId(Long usuarioId) {
+        return this.iUsuarioRepository.findById(usuarioId);
+    }
+
+
     public Usuario salvarUsuario(Usuario usuario) {
-        usuario.setRoles( usuario.getRoles()
+        usuario.setRoles(usuario.getRoles()
                 .stream()
                 .map(role -> iRoleRepository.findByNome(role.getNome()))
                 .toList());
@@ -35,7 +41,7 @@ public class UsuarioService {
     }
 
     public Usuario atualizarUsuario(Usuario usuario) {
-        usuario.setRoles( usuario.getRoles()
+        usuario.setRoles(usuario.getRoles()
                 .stream()
                 .map(role -> iRoleRepository.findByNome(role.getNome()))
                 .toList());
