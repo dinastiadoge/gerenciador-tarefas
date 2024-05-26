@@ -49,7 +49,7 @@ public class SecurityConfiguration {
                             .requestMatchers(HttpMethod.GET, "/bem-vindo").hasAuthority(PermissaoEnum.ADMINISTRADOR.toString())
                             .requestMatchers(HttpMethod.GET, "/usuario").hasAuthority(PermissaoEnum.USUARIO.toString())
                             .requestMatchers(HttpMethod.POST, "/usuario").hasAuthority(PermissaoEnum.ADMINISTRADOR.toString())
-                            .requestMatchers(HttpMethod.POST,"/gerenciador-tarefas").hasAuthority(PermissaoEnum.ADMINISTRADOR.toString())
+                            .requestMatchers(HttpMethod.POST, "/gerenciador-tarefas").hasAuthority(PermissaoEnum.ADMINISTRADOR.toString())
                             .anyRequest()
                             .authenticated();
                 });

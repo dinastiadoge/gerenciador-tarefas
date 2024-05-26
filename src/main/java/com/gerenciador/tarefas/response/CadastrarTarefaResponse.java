@@ -1,7 +1,5 @@
 package com.gerenciador.tarefas.response;
 
-
-import com.gerenciador.tarefas.entity.Usuario;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
